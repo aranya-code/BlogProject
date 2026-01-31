@@ -1,0 +1,55 @@
+{% extends "BlogPost/base.html" %}
+
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+<style>
+
+
+    #about-me {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #e47c7c;
+        border-radius: 8px;
+        }
+
+</style>
+
+
+
+<div>
+    <h1>Welcome to the Blog Home Page</h1>
+</div>
+
+<section id="Latest-Posts">
+    <header>
+        <h2>Latest Posts</h2>
+    </header>
+    
+    <ul>
+        <li>Aranya's Thoughts</li>
+
+        {% for post in posts%}
+
+        <ul>
+            <li><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></li>
+        </ul>
+
+        {% endfor %}
+    </ul>
+
+</section>
+
+
+<section id="about-me">
+
+    <header>
+        <h2>About Me</h2>
+    </header>
+    <p>Hello! I'm Aranya, a passionate developer who loves to write about web development, especially using Django. Stay tuned for more exciting posts!</p>
+
+</section>
+{% endblock %}

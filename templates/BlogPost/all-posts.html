@@ -1,0 +1,32 @@
+{% extends 'BlogPost/base.html' %}
+{% load static %}
+
+{% block title %}All Posts{% endblock %}
+
+{% block content %}
+
+<ul>
+    {% for post in posts %}
+        <li>
+            <article id="post">
+                <h2>
+                    <a href="{% url 'blog:post_detail' post.slug %}">
+                        {{ post.title }}
+                    </a>
+                </h2>
+
+                <img src="{% static post.image %}"
+                     alt="{{ post.title }}"
+                     width="150"
+                     height="150">
+
+                <div class="Post_Content">
+                    <p>{{ post.excerpt }}</p>
+                </div>
+            </article>
+        </li>
+        <br>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
