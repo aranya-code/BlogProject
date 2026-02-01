@@ -1,18 +1,120 @@
 {% extends "BlogPost/base.html" %}
 
-{% block title %} post.title {% endblock %}
+{% block title %} {{post.title}} {% endblock %}
 
 {% load static %}
+
+<style>
+
+    .Comment{
+        margin-top: auto;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #d37d7d;
+    }
+    .post-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* centers image + button */
+    gap: 10px;
+    margin-bottom: 20px;
+    }
+
+    .post-media img {
+        width: 300px;
+        height: auto;
+        display: block;
+    }
+
+    .read-later {
+        width: 300px;          /* same width as image */
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 0;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+    .read-later:hover {
+        background-color: #45a049;
+    }
+    .post-media p {
+    align-self: flex-start;
+    font-size: 14px;
+    color: #555;
+    }
+
+
+
+</style>
 
 {% block content %}
 
     <article id="post-detail">
         <h2>{{ post.title }}</h2>
-        <img src="{% static post.image %}" alt="{{ post.title }}" width="300" height="300">
+        
+        <div class="post-media">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" width="300" height="300">
+
+        
+        <div id="read-later">
+            <form action="{% url 'blog:read_later' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ post.id }}" name="post_id">
+            <button>
+                {% if saved_for_later %}
+                    Remove from Read Later
+                {% else %}
+                    Read Later
+                {% endif %}
+            </button>
+            </form>
+        </div>
+
+       
+
         <p>By: {{ post.author }} | Posted on: {{ post.date }}</p>
+        </div>
+
+        
+        
         <div>
             <p>{{ post.content }}</p>
         </div>
+
+       <h2>Comments</h2>
+
+       <div>
+
+            {% for comment in comments %}
+                <div class="Comment">
+                    <p>
+                        <strong>{{ comment.author_name }}</strong>
+                        said on {{ comment.created_at }}
+                    </p>
+                    <p>{{ comment.text }}</p>
+                </div>
+            {% empty %}
+                <p>No comments yet. Be the first to comment!</p>
+            {% endfor %}
+
+       </div>
+            
+
+        <section id="comment-form">
+        <h2>Your Comment</h2>
+        <form action="{% url 'blog:post_detail' post.slug %}" method="POST">
+            {% csrf_token %}
+            {% for form_field in comment_form %}
+            <div class="form-control">
+                {{ form_field }}
+                {{ form_field.errors }}
+            </div>
+            {% endfor %}
+            <button>Save Comment</button>
+        </form>
+        </section>
     </article>
  
 
