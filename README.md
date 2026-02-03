@@ -1,66 +1,58 @@
-# 📝 Django BlogProject
+# 📘 BlogProject
 
-A simple blog application built using **Django**, created to understand how Django handles
-**URLs, views, templates, static files, and dynamic routing using slugs**.
-
-This project uses **dummy in-memory data** (no database models yet) and focuses on learning
-core Django concepts correctly.
+A simple Django blog application that allows users to read posts, add comments, and save posts to read later using session storage.
 
 ---
 
 ## 🚀 Features
 
-- Home page
-- List of all blog posts
-- Individual post detail pages using **slug-based URLs**
-- Navigation bar shared across pages
-- Template inheritance using `base.html`
-- Static images loaded using `{% static %}`
-- Clean and readable project structure
+- View all blog posts
+- View individual post detail pages
+- Display post images
+- Add comments to posts
+- Save posts to a **Read Later** list
+- Remove posts from **Read Later**
+- View saved posts on a separate page
 
 ---
 
-## 🧩 Project Structure
+## 🛠 Built With
+
+- Python 3
+- Django 6.0.1
+- SQLite (development database)
+- HTML & CSS
+
+---
+
+## 📁 Project Structure
 
 BlogProject/
-│
-├── BlogPost/ # Main Django app
-│ ├── templates/BlogPost/
-│ │ ├── base.html
-│ │ ├── home.html
-│ │ ├── all-posts.html
-│ │ └── post-detail.html
-│ ├── views.py
-│ ├── urls.py
-│ └── ...
-│
-├── BlogProject/ # Project configuration
-│ ├── settings.py
-│ ├── urls.py
-│ └── ...
-│
-├── static/
-│ └── BlogPost/
-│ ├── mountain.jpg
-│ ├── coding.jpg
-│ └── woods.jpg
-│
+├── BlogPost/                # Main blog app
+│   ├── migrations/          # Database migrations
+│   ├── templates/BlogPost/  # HTML templates
+│   │   ├── all-posts.html
+│   │   ├── base.html
+│   │   ├── home.html
+│   │   ├── post-detail.html
+│   │   └── stored-posts.html
+│   ├── admin.py
+│   ├── forms.py             # Comment form
+│   ├── models.py            # Post & Comment models
+│   ├── urls.py              # App URLs
+│   └── views.py             # Views for posts & read later
+├── BlogProject/             # Project settings
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── media/                   # Uploaded images
+├── db.sqlite3               # Database
 ├── manage.py
-├── db.sqlite3
-├── .gitignore
-└── README.md
+└── requirements.txt
 
 
-
----
-
-## 🛠 Tech Stack
-
-- **Python 3**
-- **Django**
+🛠 Tech Stack
+- Python 3
+- Django
 - HTML & CSS
 - Django Template Language
-
----
-
-
