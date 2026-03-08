@@ -15,10 +15,17 @@
                     </a>
                 </h2>
 
-                <img src="{{ post.image.url }}"
+                {% if post.image %}
+
+                    <img src="{{ post.image.url }}"
                      alt="{{ post.title }}"
                      width="150"
                      height="150">
+                     
+                {% else %}
+
+                {% endif %}
+                
 
                 <div class="Post_Content">
                     <p>{{ post.excerpt }}</p>

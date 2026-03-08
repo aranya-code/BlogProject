@@ -55,7 +55,13 @@
         <h2>{{ post.title }}</h2>
         
         <div class="post-media">
-        <img src="{{ post.image.url }}" alt="{{ post.title }}" width="300" height="300">
+            {% if post.image %}
+
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" width="300" height="300">
+            {% else %}
+
+            {% endif %}
+        
 
         
         <div id="read-later">
