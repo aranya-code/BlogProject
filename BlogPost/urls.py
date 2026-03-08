@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# Setting the app namespace prevents URL collisions if other apps also have a 'home' or 'post_list' route
 app_name = 'blog'
 
 urlpatterns = [
