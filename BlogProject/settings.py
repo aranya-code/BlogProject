@@ -18,8 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = os.environ.get("DEBUG", "").lower() == "true"
-ALLOWED_HOSTS = ["aranya.pythonanywhere.com"]
+DEBUG = os.environ.get("DEBUG", "").lower() == "True"
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS",'').split(',')
 
 
 # Quick-start development settings - unsuitable for production
