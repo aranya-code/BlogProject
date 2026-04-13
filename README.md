@@ -10,7 +10,15 @@ This project demonstrates the implementation of a dynamic blogging platform wher
 
 The project is designed as a **hands-on learning project for understanding Django fundamentals and web development concepts**.
 
-Blog applications built with Django typically allow users to create, manage, and interact with posts through a structured backend and templated frontend. :contentReference[oaicite:0]{index=0}
+Blog applications built with Django typically allow users to create, manage, and interact with posts through a structured backend and templated frontend.
+
+---
+
+## 🚀 Quick Access
+You can access the deployed version of this application here: 
+👉 **[Live Demo on PythonAnywhere](https://aranya.pythonanywhere.com/)**
+
+*Note: The demo site might take a moment to load if it hasn't been accessed recently.*
 
 ---
 
