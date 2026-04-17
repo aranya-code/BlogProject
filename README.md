@@ -14,14 +14,6 @@ Blog applications built with Django typically allow users to create, manage, and
 
 ---
 
-## 🚀 Quick Access
-You can access the deployed version of this application here: 
-👉 **[Live Demo on PythonAnywhere](https://aranya.pythonanywhere.com/)**
-
-*Note: The demo site might take a moment to load if it hasn't been accessed recently.*
-
----
-
 # 📌 Features
 
 - 📝 Create blog posts
